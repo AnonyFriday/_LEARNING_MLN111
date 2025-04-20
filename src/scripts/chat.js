@@ -6,6 +6,9 @@ const chatWindow = document.querySelector(".chat-window__messages");
 const inputField = document.querySelector(".chat-window__textarea");
 const sendButton = document.querySelector(".chat-window__send-btn");
 const clearButton = document.querySelector(".chat-window__clear-btn");
+const responseWindow = document.querySelector(".response-window__content");
+
+import { sendMessageToAI } from "./chatService.js";
 
 // ===========================
 // === Methods
@@ -38,7 +41,7 @@ const createMessageElement = (message) => {
 };
 
 /**
- *
+ * Append message element to chat window
  * @param {*} messageElement
  */
 const appendMessageElementToChatWindow = (messageElement) => {
@@ -46,12 +49,29 @@ const appendMessageElementToChatWindow = (messageElement) => {
   chatWindow.scrollTop = chatWindow.scrollHeight;
 };
 
-const handleSendMessage = () => {
+/**
+ * Append response message element to response window
+ * @param {*} messageElement
+ */
+const appendMessageElementToResponseWindow = (messageElement) => {
+  responseWindow.appendChild(messageElement);
+  responseWindow.scrollTop = responseWindow.scrollHeight;
+};
+
+const handleSendMessage = async () => {
   const message = inputField.value.trim();
+
+  // If having message
   if (message) {
+    // Create message element and append to chat window
     const messageElement = createMessageElement(message);
     appendMessageElementToChatWindow(messageElement);
     inputField.value = "";
+
+    // create response message element and append to response window
+    const aiMessage = await sendMessageToAI(message);
+    const aiMessageElement = createMessageElement(aiMessage);
+    appendMessageElementToResponseWindow(aiMessageElement);
   }
 };
 
