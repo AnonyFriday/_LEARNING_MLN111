@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Interface - MLN111</title>
 
+    <!-- Import Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
     <!-- Vendor Styles -->
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css" />
 
@@ -31,14 +34,15 @@
         <!-- Input Area and button -->
         <div class="chat-window__input">
           <textarea class="chat-window__textarea" placeholder="Type your message here..." id="messageInput"></textarea>
-          <button class="chat-window__send-btn" id="sendButton">Send</button>
+          <button class="chat-window__send-btn" id="sendButton">Hãy cho tôi câu hỏi về triết học</button>
+          <button class="chat-window__clear-btn" id="clearButton">Xóa tất cả tin nhắn</button>
         </div>
       </div>
 
       <!-- Response Window  -->
       <div class="response-window">
         <div class="response-window__header">
-          <h2 class="response-window__title">Response</h2>
+          <h2 class="response-window__title">Trả lời từ AI</h2>
         </div>
         <div class="response-window__content" id="responseContent">
           <!-- Response content will be displayed here -->

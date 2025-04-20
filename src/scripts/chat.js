@@ -5,6 +5,7 @@
 const chatWindow = document.querySelector(".chat-window__messages");
 const inputField = document.querySelector(".chat-window__textarea");
 const sendButton = document.querySelector(".chat-window__send-btn");
+const clearButton = document.querySelector(".chat-window__clear-btn");
 
 // ===========================
 // === Methods
@@ -59,6 +60,9 @@ const handleSendMessage = () => {
 // ===========================
 
 sendButton.addEventListener("click", handleSendMessage);
+clearButton.addEventListener("click", () => {
+  chatWindow.innerHTML = "";
+});
 
 inputField.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {

@@ -9,15 +9,3 @@
 @import 'components/chat-window';
 @import 'components/chat-message';
 @import 'components/response-window';
-
-
-
-// Base styles
-body {
-    font-family: $font-family-primary;
-    font-size: $font-size-base;
-    background-color: $color-bg;
-    height: 100vh;
-    overflow: hidden;
-    padding: 2rem;
-}
