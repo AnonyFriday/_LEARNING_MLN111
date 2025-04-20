@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Interface - MLN111</title>
+    <link rel="stylesheet" href="/src/styles/css/main.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-window">
+        <div class="chat-window__header">
+          <h1 class="chat-window__title">Chat Window</h1>
+        </div>
+        <div class="chat-window__messages" id="chatMessages">
+          <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="chat-window__input">
+          <textarea class="chat-window__textarea" placeholder="Type your message here..." id="messageInput"></textarea>
+          <button class="chat-window__send-btn" id="sendButton">Send</button>
+        </div>
+      </div>
+
+      <div class="response-window">
+        <div class="response-window__header">
+          <h2 class="response-window__title">Response</h2>
+        </div>
+        <div class="response-window__content" id="responseContent">
+          <!-- Response content will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

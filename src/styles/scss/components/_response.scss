@@ -1,0 +1,25 @@
+.response-window {
+    width: $response-window-width;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        height: $header-height;
+        padding: $spacing-md;
+        border-bottom: 1px solid $color-border;
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: $font-size-xl;
+        color: $color-primary;
+    }
+
+    &__content {
+        flex: 1;
+        padding: $spacing-md;
+        overflow-y: auto;
+    }
+}

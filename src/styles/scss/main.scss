@@ -1,0 +1,20 @@
+// Abstracts
+@import 'abstracts/variables'; // Base
+@import 'base/reset';
+
+// Layout
+@import 'layout/container';
+
+// Components
+@import 'components/chat';
+@import 'components/response';
+
+// Base styles
+body {
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    color: $color-text;
+    background-color: $color-bg;
+    height: 100vh;
+    overflow: hidden;
+}
