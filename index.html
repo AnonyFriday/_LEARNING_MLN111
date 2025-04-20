@@ -4,23 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Interface - MLN111</title>
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css" />
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="/src/styles/css/main.css" />
+
+    <!-- Scripts -->
+    <script src="/src/scripts/chat.js" defer="true"></script>
   </head>
   <body>
+    <!-- Chat Container -->
     <div class="chat-container">
       <div class="chat-window">
+        <!-- Chat Title -->
         <div class="chat-window__header">
-          <h1 class="chat-window__title">Chat Window</h1>
+          <h1 class="chat-window__title">Nhóm 9 - Chương 3: Lịch sử đảng</h1>
         </div>
+
+        <!-- Chat Messages -->
         <div class="chat-window__messages" id="chatMessages">
           <!-- Messages will be dynamically added here -->
         </div>
+
+        <!-- Input Area and button -->
         <div class="chat-window__input">
           <textarea class="chat-window__textarea" placeholder="Type your message here..." id="messageInput"></textarea>
           <button class="chat-window__send-btn" id="sendButton">Send</button>
         </div>
       </div>
 
+      <!-- Response Window  -->
       <div class="response-window">
         <div class="response-window__header">
           <h2 class="response-window__title">Response</h2>
@@ -30,7 +45,5 @@
         </div>
       </div>
     </div>
-
-    <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

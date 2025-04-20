@@ -1,20 +1,23 @@
 // Abstracts
-@import 'abstracts/variables'; // Base
+@import 'abstracts/variables';
 @import 'base/reset';
 
 // Layout
-@import 'layout/container';
+@import 'layout/chat-container';
 
 // Components
-@import 'components/chat';
-@import 'components/response';
+@import 'components/chat-window';
+@import 'components/chat-message';
+@import 'components/response-window';
+
+
 
 // Base styles
 body {
     font-family: $font-family-primary;
     font-size: $font-size-base;
-    color: $color-text;
     background-color: $color-bg;
     height: 100vh;
     overflow: hidden;
+    padding: 2rem;
 }

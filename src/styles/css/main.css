@@ -12,8 +12,12 @@ html {
 }
 
 body {
-  font-family: var(--font-primary);
   line-height: 1.6;
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
+  height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -53,13 +57,20 @@ h6 {
 
 .chat-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .chat-container {
     flex-direction: column;
+    border-radius: 0;
+    box-shadow: none;
   }
   .chat-window,
   .response-window {
@@ -87,12 +98,15 @@ h6 {
 }
 .chat-window__title {
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: #A40D1C;
 }
 .chat-window__messages {
   flex: 1;
   padding: 1rem;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .chat-window__input {
   height: 120px;
@@ -114,11 +128,11 @@ h6 {
 }
 .chat-window__textarea:focus {
   outline: none;
-  border-color: #3498db;
+  border-color: #A40D1C;
 }
 .chat-window__send-btn {
   padding: 0.5rem 1.5rem;
-  background-color: #3498db;
+  background-color: #A40D1C;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -127,7 +141,32 @@ h6 {
   transition: background-color 0.2s;
 }
 .chat-window__send-btn:hover {
-  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  background-color: rgb(69.4915254237, 5.5084745763, 11.8644067797);
+}
+
+.chat-message {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #A40D1C;
+  color: white;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  word-break: break-word;
+}
+.chat-message__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.chat-message__content {
+  flex: 1;
+  padding: 0.5rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  color: #333333;
 }
 
 .response-window {
@@ -145,7 +184,7 @@ h6 {
 }
 .response-window__title {
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: #A40D1C;
 }
 .response-window__content {
   flex: 1;
@@ -156,10 +195,10 @@ h6 {
 body {
   font-family: "Arial", sans-serif;
   font-size: 1rem;
-  color: #333333;
   background-color: #ffffff;
   height: 100vh;
   overflow: hidden;
+  padding: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

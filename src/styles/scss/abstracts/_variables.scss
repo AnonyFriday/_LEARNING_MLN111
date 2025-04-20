@@ -1,8 +1,14 @@
+@use "sass:color";
+
 // Colors
-$color-primary: #2c3e50;
+$color-primary: #A40D1C;
 $color-secondary: #34495e;
-$color-accent: #3498db;
-$color-text: #333333;
+
+$color-accent: #A40D1C;
+$color-accent-dark: color.adjust($color-accent, $lightness: -20%);
+
+$color-text: #FFFFFF;
+$color-text-dark: color.adjust($color-text, $lightness: -80%);
 $color-bg: #ffffff;
 $color-border: #e1e1e1;
 $color-input-bg: #f5f5f5;
