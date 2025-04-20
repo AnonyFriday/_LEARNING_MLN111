@@ -8,7 +8,7 @@ const sendButton = document.querySelector(".chat-window__send-btn");
 const clearButton = document.querySelector(".chat-window__clear-btn");
 const responseWindow = document.querySelector(".response-window__content");
 
-import { sendMessageToAI } from "./chatService.js";
+import { generateAnswerFromAI } from "./chatService.js";
 
 // ===========================
 // === Methods
@@ -19,8 +19,7 @@ import { sendMessageToAI } from "./chatService.js";
  * @param {*} message
  * @returns
  */
-
-const createMessageElement = (message) => {
+const createMessageElement = (message, isFromChat) => {
   // create message element container
   const messageElement = document.createElement("div");
   messageElement.classList.add("chat-message");
@@ -28,12 +27,19 @@ const createMessageElement = (message) => {
   // create message content element
   const messageContent = document.createElement("div");
   messageContent.classList.add("chat-message__content");
-  messageContent.appendChild(document.createTextNode(message));
+  messageContent.innerHTML = message;
 
   // create avatar element
   const avatarElement = document.createElement("i");
   avatarElement.classList.add("chat-message__avatar");
-  avatarElement.classList.add("bi", "bi-person-circle");
+
+  // Differencet chat avatar from user and AI
+  if (isFromChat) {
+    avatarElement.classList.add("bi", "bi-robot");
+    avatarElement.classList.add("chat-message__avatar--right");
+  } else {
+    avatarElement.classList.add("bi", "bi-person-circle");
+  }
 
   messageElement.appendChild(avatarElement);
   messageElement.appendChild(messageContent);
@@ -45,8 +51,8 @@ const createMessageElement = (message) => {
  * @param {*} messageElement
  */
 const appendMessageElementToChatWindow = (messageElement) => {
-  chatWindow.appendChild(messageElement);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
+  chatWindow.insertBefore(messageElement, chatWindow.firstChild);
+  chatWindow.scrollTop = 0;
 };
 
 /**
@@ -54,9 +60,25 @@ const appendMessageElementToChatWindow = (messageElement) => {
  * @param {*} messageElement
  */
 const appendMessageElementToResponseWindow = (messageElement) => {
-  responseWindow.appendChild(messageElement);
-  responseWindow.scrollTop = responseWindow.scrollHeight;
+  responseWindow.insertBefore(messageElement, responseWindow.firstChild);
+  responseWindow.scrollTop = 0;
 };
+
+/**
+ * Highlight newest message
+ * @param {*} messageElement
+ */
+const highlightNewestMessage = (messageElement) => {
+  const previousHighlighteds = document.querySelectorAll(".chat-message--highlighted");
+  previousHighlighteds.forEach((prevMessageEl) => {
+    prevMessageEl.classList.remove("chat-message--highlighted");
+  });
+
+  messageElement.classList.add("chat-message--highlighted");
+};
+/**
+ * Handle send message
+ */
 
 const handleSendMessage = async () => {
   const message = inputField.value.trim();
@@ -64,30 +86,61 @@ const handleSendMessage = async () => {
   // If having message
   if (message) {
     // Create message element and append to chat window
-    const messageElement = createMessageElement(message);
+    const messageElement = createMessageElement(message, false);
+    highlightNewestMessage(messageElement);
     appendMessageElementToChatWindow(messageElement);
     inputField.value = "";
 
     // create response message element and append to response window
-    const aiMessage = await sendMessageToAI(message);
-    const aiMessageElement = createMessageElement(aiMessage);
+    const aiMessage = await generateAnswerFromAI(message);
+    const aiMessageElement = createMessageElement(aiMessage, true);
+    highlightNewestMessage(aiMessageElement);
     appendMessageElementToResponseWindow(aiMessageElement);
   }
 };
+
+/**
+ * Debounce function
+ * @param {*} func
+ * @param {*} wait
+ * @returns
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const later = () => {
+      timeout = null;
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
 // ===========================
 // === Event listeners
 // ===========================
 
-sendButton.addEventListener("click", handleSendMessage);
+// Event for window load
+window.addEventListener("load", () => {
+  const initialMessage = createMessageElement("Hãy hỏi tôi về Triết học Mác-Lênin", true);
+  appendMessageElementToResponseWindow(initialMessage);
+});
+
+// Event for send button and debounced handle send message
+const debouncedHandleSendMessage = debounce(handleSendMessage, 300);
+sendButton.addEventListener("click", debouncedHandleSendMessage);
+
+// Event for clear button
 clearButton.addEventListener("click", () => {
   chatWindow.innerHTML = "";
 });
 
+// Event for input field
 inputField.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
     e.stopPropagation();
-    handleSendMessage();
+    debouncedHandleSendMessage();
   }
 });

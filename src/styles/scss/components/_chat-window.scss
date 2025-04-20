@@ -59,7 +59,7 @@
     &__send-btn {
         padding: $spacing-sm $spacing-lg;
         background-color: $color-accent;
-        color: $color-bg;
+        color: $color-text;
         border: none;
         border-radius: $border-radius;
         cursor: pointer;
@@ -75,7 +75,7 @@
     &__clear-btn {
         padding: $spacing-sm $spacing-lg;
         background-color: $color-secondary;
-        color: $color-bg;
+        color: $color-text;
         border: none;
         border-radius: $border-radius;
         cursor: pointer;

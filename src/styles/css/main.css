@@ -14,7 +14,7 @@ html {
 body {
   line-height: 1.6;
   font-family: "Inter", "Segoe UI", "Arial", sans-serif;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1176470588);
   height: 100vh;
   overflow: hidden;
   padding: 2rem;
@@ -134,7 +134,7 @@ h6 {
 .chat-window__send-btn {
   padding: 0.5rem 1.5rem;
   background-color: #A40D1C;
-  color: #ffffff;
+  color: #FFFFFF;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -148,7 +148,7 @@ h6 {
 .chat-window__clear-btn {
   padding: 0.5rem 1.5rem;
   background-color: #34495e;
-  color: #ffffff;
+  color: #FFFFFF;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -178,6 +178,9 @@ h6 {
   align-items: center;
   border-radius: 50%;
 }
+.chat-message__avatar--right {
+  order: 1;
+}
 .chat-message__content {
   flex: 1;
   padding: 1rem;
@@ -185,6 +188,10 @@ h6 {
   border-radius: 8px;
   color: #333333;
   font-size: 1.5rem;
+}
+
+.chat-message--highlighted {
+  border: 1px dashed #A40D1C;
 }
 
 .response-window {
@@ -199,6 +206,7 @@ h6 {
   border-bottom: 1px solid #e1e1e1;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .response-window__title {
   font-size: 1.5rem;
@@ -206,6 +214,9 @@ h6 {
 }
 .response-window__content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 1rem;
   overflow-y: auto;
 }
