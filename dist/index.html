@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Interface - MLN111</title>
+
+    <!-- Import Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Vendor Styles -->
+
+    <!-- Custom Styles -->
+
+    <!-- Scripts -->
+    <!-- <script src="node_modules/marked/marked.min.js" defer="true" /> -->
+    <script type="module" crossorigin src="/assets/index-Bu8NaQDh.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CO4It0uJ.css">
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="background-video">
+      <source src="/assets/bg2-D7rDCdWB.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop>
+      <source src="/assets/sound-BFgS7K-G.mp3" type="audio/mp3" />
+    </audio>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+      <!-- Chat Window -->
+      <div class="chat-window">
+        <div class="chat-window__header">
+          <h1 class="chat-window__title">Nhóm 9 - Chương 3: Giai cấp và dân tộc</h1>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-window__messages" id="chatMessages">
+          <!-- Messages will be dynamically added here -->
+        </div>
+
+        <!-- Input Area and button -->
+        <div class="chat-window__input">
+          <textarea class="chat-window__textarea" placeholder="Type your message here..." id="messageInput"></textarea>
+          <button class="chat-window__send-btn" id="sendButton">Hãy cho tôi câu hỏi về triết học</button>
+          <button class="chat-window__clear-btn" id="clearButton">Xóa tất cả tin nhắn</button>
+        </div>
+      </div>
+
+      <!-- Response Window  -->
+      <div class="response-window">
+        <div class="response-window__header">
+          <h2 class="response-window__title">Trả lời từ AI</h2>
+        </div>
+        <div class="response-window__content" id="responseContent">
+          <!-- Response content will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

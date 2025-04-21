@@ -15,11 +15,21 @@
     <link rel="stylesheet" href="/src/styles/css/main.css" />
 
     <!-- Scripts -->
-    <script src="node_modules/marked/marked.min.js" defer="true" />
+    <!-- <script src="node_modules/marked/marked.min.js" defer="true" /> -->
     <script src="/src/scripts/chatService.js" defer="true" type="module"></script>
     <script src="/src/scripts/chat.js" defer="true" type="module"></script>
   </head>
   <body>
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="background-video">
+      <source src="src/styles/videos/bg2.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop>
+      <source src="src/styles/sounds/sound.mp3" type="audio/mp3" />
+    </audio>
+
     <!-- Chat Container -->
     <div class="chat-container">
       <!-- Chat Window -->

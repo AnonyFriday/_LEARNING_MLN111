@@ -1,5 +1,5 @@
 // ===========================
-// === Element references
+// === Element references & Libs
 // ===========================
 
 const chatWindow = document.querySelector(".chat-window__messages");
@@ -7,6 +7,7 @@ const inputField = document.querySelector(".chat-window__textarea");
 const sendButton = document.querySelector(".chat-window__send-btn");
 const clearButton = document.querySelector(".chat-window__clear-btn");
 const responseWindow = document.querySelector(".response-window__content");
+const audio = document.querySelector("#background-music");
 
 import { generateAnswerFromAI } from "./chatService.js";
 
@@ -125,6 +126,11 @@ function debounce(func, wait) {
 window.addEventListener("load", () => {
   const initialMessage = createMessageElement("Hãy hỏi tôi về Triết học Mác-Lênin", true);
   appendMessageElementToResponseWindow(initialMessage);
+});
+
+document.addEventListener("click", () => {
+  audio.mute = false;
+  audio.play(); // Start playing the audio when the page load
 });
 
 // Event for send button and debounced handle send message

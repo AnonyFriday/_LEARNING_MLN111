@@ -1,3 +1,13 @@
+// ===========================
+// === Element references & Libs
+// ===========================
+
+import { marked } from "marked";
+
+// ===========================
+// === Methods
+// ===========================
+
 /**
  * Create a system instruction for the chatbot
  * @returns

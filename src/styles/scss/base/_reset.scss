@@ -14,14 +14,14 @@ html {
 body {
     line-height: 1.6;
     font-family: $font-family-primary;
-    background-color: $color-bg;
     height: 100vh;
     overflow: hidden;
-    padding: 2rem;
+    padding: $spacing-xll;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 
 img {
     max-width: 100%;
