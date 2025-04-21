@@ -25,11 +25,11 @@ Psychology Chat Supporting Portal is a chatbot powered by the Gemini API, create
 <a id="screen-flow"></a>
 ## 2. Screens
 
+### 2.2. Normal State
+<img src="./images/normal1.png" alt="MindSpace-UsecaseDiagram" />
+
 ### 2.1. Correct Answer
 <img src="./images/traloidung.png" alt="MindSpace-UsecaseDiagram" />
 
-### 2.2. Correct Answer
-<img src="./images/normal1.png" alt="MindSpace-UsecaseDiagram" />
-
-### 2.3. Correct Answer
+### 2.3. Unrelated Answer
 <img src="./images/traloisai.png" alt="MindSpace-UsecaseDiagram" />
