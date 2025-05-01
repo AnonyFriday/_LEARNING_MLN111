@@ -1,4 +1,4 @@
-# Philosophy Chat Supporting Portal
+# Philosophy AI Chat Supporting Portal
 
 <div align='center'>
 <img src="https://img.shields.io/badge/SCSS-Yes-green"> 
